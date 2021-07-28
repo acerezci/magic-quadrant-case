@@ -1,9 +1,4 @@
 import React from "react";
+import { Home } from "../containers";
 
-export const App: React.FC = () => {
-  return (
-    <div>
-      <h1>App</h1>
-    </div>
-  );
-};
+export const App: React.FC = () => <Home />;

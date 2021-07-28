@@ -1,0 +1,7 @@
+.chart-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--color-dark-gray);
+  margin-top: 16px;
+}

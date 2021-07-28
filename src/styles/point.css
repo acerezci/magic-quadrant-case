@@ -1,0 +1,13 @@
+.point-container {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background-color: var(--color-dark-blue);
+  cursor: pointer;
+}
+
+.label {
+  position: absolute;
+  top: -21px;
+  left: -12px;
+}
