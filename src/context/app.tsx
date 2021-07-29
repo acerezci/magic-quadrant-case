@@ -1,5 +1,6 @@
 import React from "react";
 import { AppContextModel, PointsType, PointType } from "../models";
+import { addPointToLocalStorage } from "../service";
 
 export const AppContext = React.createContext<AppContextModel>({ points: [] } as any);
 export const useAppContext = () => React.useContext(AppContext);
@@ -26,11 +27,13 @@ export const AppContextProvider: React.FC<{ data?: PointsType }> = ({ children, 
     );
   };
 
-  const addPoint = (point: PointType) => {
+  const addPoint = async (point: PointType) => {
     const maxId = points.reduce((acc, _point) => (acc = acc > _point.id ? acc : _point.id), 0);
     point.id = maxId + 1;
 
-    setPoints([...points, point]);
+    await setPoints([...points, point]);
+
+    addPointToLocalStorage([...points, point]);
   };
 
   const contextValue: AppContextModel = {
