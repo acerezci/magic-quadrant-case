@@ -19,6 +19,8 @@ export const AppContextProvider: React.FC<{ data?: PointsType }> = ({ children, 
         return _point;
       });
     });
+
+    addPointToLocalStorage([...points, point]);
   };
 
   const deletePoint = (point: PointType) => {
