@@ -4,6 +4,11 @@
   height: 15px;
   background-color: var(--color-dark-blue);
   cursor: pointer;
+  z-index: 1;
+}
+
+.point-container:active {
+  box-shadow: unset !important;
 }
 
 .label {

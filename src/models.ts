@@ -5,3 +5,8 @@ export interface PointType {
 }
 
 export type PointsType = PointType[];
+
+export interface ChartPosition {
+  chartX: any;
+  chartY: any;
+}

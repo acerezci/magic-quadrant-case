@@ -4,4 +4,51 @@
   height: 200px;
   border: 2px solid var(--color-dark-gray);
   margin-top: 16px;
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: "";
+  border: 2px solid var(--color-light-gray);
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+}
+
+.chart-container::after {
+  content: "";
+  border: 2px solid var(--color-light-gray);
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+  transform: rotate(90deg);
+}
+
+.chart-area-label-container {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 100px 100px;
+  position: absolute;
+}
+
+.chart-area-label-container div span {
+  color: var(--color-white);
+  background-color: var(--color-light-blue);
+  padding: 2px;
+}
+
+.chart-area-label-container div {
+  margin-top: 4px;
+}
+
+.chart-area-label-container div:nth-child(even) {
+  text-align: right;
+  margin-right: 6px;
+}
+
+.chart-area-label-container div:nth-child(odd) {
+  text-align: left;
+  margin-left: 6px;
 }
