@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/chart.css";
 
-export const Chart = React.forwardRef<HTMLDivElement, Props>(({ children }, ref) => {
+export const Chart: React.FC = ({ children }) => {
   return (
-    <div ref={ref} className="chart-container">
+    <div className="chart-container">
       <div className="chart-area-label-container">
         <div>
           <span>Area 1</span>
@@ -21,8 +21,4 @@ export const Chart = React.forwardRef<HTMLDivElement, Props>(({ children }, ref)
       {children}
     </div>
   );
-});
-
-interface Props {
-  children: React.ReactNode;
-}
+};

@@ -1,0 +1,42 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 16px;
+}
+
+.table-container h2 {
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
+  font-family: sans-serif;
+  margin: 12px 0;
+}
+
+.table-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.table-item div {
+  border: 1px solid var(--color-dark-blue);
+  border-right: none;
+  border-bottom: none;
+  padding: 6px;
+  text-align: center;
+}
+
+.table-item div:last-child {
+  border-right: 1px solid var(--color-dark-blue);
+}
+
+.table-item:last-child {
+  border-bottom: 1px solid var(--color-dark-blue);
+}
+
+.table-header div {
+  font-weight: 500;
+}
+
+.delete-button {
+  cursor: pointer;
+}

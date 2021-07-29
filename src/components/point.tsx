@@ -1,10 +1,10 @@
 import React, { DragEvent, RefObject } from "react";
-import { ChartPosition, PointType } from "../models";
+import { chartSettings, pointSettings } from "../config";
+import { useAppContext } from "../context";
+import { PointType } from "../models";
 import "../styles/point.css";
 
-// chartX and chartY were defined for point's edge
-
-export const Point: React.FC<PointType & ChartPosition> = ({ label, x, y, chartX, chartY }) => {
+export const Point: React.FC<PointType> = ({ label, x, y, id }) => {
   const [{ dx, dy }, setOffset] = React.useState({ dx: x, dy: y });
   const [startX, setStartX] = React.useState<number>(0);
   const [startY, setStartY] = React.useState<number>(0);
@@ -12,6 +12,7 @@ export const Point: React.FC<PointType & ChartPosition> = ({ label, x, y, chartX
   const pointRef: RefObject<HTMLDivElement> = React.useRef(null);
   const elementX = Number(pointRef.current?.getBoundingClientRect().x) || 0;
   const elementY = Number(pointRef.current?.getBoundingClientRect().y) || 0;
+  const { updatePoints } = useAppContext();
 
   const onMouseDown = () => {
     setStartX(elementX - dx);
@@ -20,10 +21,27 @@ export const Point: React.FC<PointType & ChartPosition> = ({ label, x, y, chartX
 
   const onDragEnd = (e: DragEvent) => {
     e.preventDefault();
-    const newDx = e.pageX - startX;
-    const newDy = e.pageY - startY;
+    let newDx = e.pageX - startX;
+    let newDy = e.pageY - startY;
+
+    if (newDx < 0) {
+      newDx = 0;
+    }
+
+    if (newDx > chartSettings.width - pointSettings.width - chartSettings.borderWidth - 1) {
+      newDx = chartSettings.width - pointSettings.width - chartSettings.borderWidth - 1;
+    }
+
+    if (newDy < 0) {
+      newDy = 0;
+    }
+
+    if (newDy > chartSettings.height - pointSettings.height - chartSettings.borderWidth - 1) {
+      newDy = chartSettings.height - pointSettings.height - chartSettings.borderWidth - 1;
+    }
 
     setOffset({ dx: newDx, dy: newDy });
+    updatePoints({ id, x: newDx, y: newDy, label });
   };
 
   const onMouseOut = () => {

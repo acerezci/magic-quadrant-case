@@ -4,14 +4,13 @@
   height: 200px;
   border: 2px solid var(--color-dark-gray);
   margin-top: 16px;
-  overflow: hidden;
 }
 
 .chart-container::before {
   content: "";
   border: 2px solid var(--color-light-gray);
   display: flex;
-  width: 100%;
+  width: 98%;
   position: absolute;
   bottom: 50%;
 }
@@ -20,7 +19,7 @@
   content: "";
   border: 2px solid var(--color-light-gray);
   display: flex;
-  width: 100%;
+  width: 98%;
   position: absolute;
   bottom: 50%;
   transform: rotate(90deg);

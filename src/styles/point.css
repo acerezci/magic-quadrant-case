@@ -1,5 +1,5 @@
 .point-container {
-  position: relative;
+  position: absolute;
   width: 15px;
   height: 15px;
   background-color: var(--color-dark-blue);
@@ -11,8 +11,11 @@
   box-shadow: unset !important;
 }
 
-.label {
+.point-container .label {
   position: absolute;
   top: -21px;
   left: -12px;
+  font-size: 13px;
+  font-family: sans-serif;
+  color: var(--color-dark-blue);
 }
