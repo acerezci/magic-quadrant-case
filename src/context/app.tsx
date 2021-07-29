@@ -20,20 +20,23 @@ export const AppContextProvider: React.FC<{ data?: PointsType }> = ({ children, 
       });
     });
 
-    addPointToLocalStorage([...points, point]);
+    addPointToLocalStorage(points);
   };
 
   const deletePoint = (point: PointType) => {
-    setPoints((prevState: PointsType) =>
-      prevState.filter((_point: PointType) => _point.id !== point.id),
-    );
+    setPoints((prevState: PointsType) => {
+      const updatedPoints = prevState.filter((_point: PointType) => _point.id !== point.id);
+      addPointToLocalStorage(updatedPoints);
+
+      return updatedPoints;
+    });
   };
 
-  const addPoint = async (point: PointType) => {
+  const addPoint = (point: PointType) => {
     const maxId = points.reduce((acc, _point) => (acc = acc > _point.id ? acc : _point.id), 0);
     point.id = maxId + 1;
 
-    await setPoints([...points, point]);
+    setPoints([...points, point]);
 
     addPointToLocalStorage([...points, point]);
   };
