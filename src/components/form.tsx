@@ -40,6 +40,12 @@ export const Form: React.FC = () => {
       return;
     }
 
+    if (label.length > 15) {
+      alert("The length of the label must be less than 15");
+
+      return;
+    }
+
     addPoint({ id: -1, x: dx, y: dy, label });
   };
 
