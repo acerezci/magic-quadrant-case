@@ -1,5 +1,5 @@
 import React from "react";
-import { Chart, Point, Table } from "../components";
+import { Chart, Form, Point, Table } from "../components";
 import { useAppContext } from "../context";
 import { PointType } from "../models";
 import "../styles/home.css";
@@ -22,6 +22,7 @@ export const Home: React.FC = () => {
         ))}
       </Chart>
       <Table />
+      <Form />
     </div>
   );
 };

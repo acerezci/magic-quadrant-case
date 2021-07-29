@@ -11,4 +11,5 @@ export interface AppContextModel {
   points: PointsType;
   updatePoints: (point: PointType) => void;
   deletePoint: (point: PointType) => void;
+  addPoint: (point: PointType) => void;
 }

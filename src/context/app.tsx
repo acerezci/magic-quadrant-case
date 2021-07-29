@@ -26,10 +26,18 @@ export const AppContextProvider: React.FC<{ data?: PointsType }> = ({ children, 
     );
   };
 
+  const addPoint = (point: PointType) => {
+    const maxId = points.reduce((acc, _point) => (acc = acc > _point.id ? acc : _point.id), 0);
+    point.id = maxId + 1;
+
+    setPoints([...points, point]);
+  };
+
   const contextValue: AppContextModel = {
     points,
     updatePoints,
     deletePoint,
+    addPoint,
   };
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;

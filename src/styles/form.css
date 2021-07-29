@@ -1,0 +1,35 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 16px;
+}
+
+.form-container h2 {
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
+  font-family: sans-serif;
+  margin: 12px 0;
+}
+
+.inputs-container {
+  display: flex;
+  margin: 6px 0;
+}
+
+.button-container {
+  margin: 12px auto;
+}
+
+.button-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 40px;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
