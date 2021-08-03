@@ -7,6 +7,6 @@ export const pointSettings = {
 
 export const chartSettings = {
   borderWidth: 2,
-  width: 200,
-  height: 200,
+  width: 400,
+  height: 400,
 };
